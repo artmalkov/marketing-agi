@@ -6,16 +6,26 @@ This file describes the architecture conventions for extending knowledge within 
 
 - I know kung fu. *Neo*
 
-Knowlifier (pronounced no-li-faier [noʊˈlɪfaɪər]) is a project that enables translating knowledge into a modular structure, distributing and using it as compatible libraries and packages (Cognitive components).
+**Knowlifier** (pronounced nou-li-faier [noʊˈlɪfaɪər]) is an open-source initiative to convert human knowledge into modular, AI-ready Cognitive Components so that both people and machines can instantly "download" and become experts in any domain.
 
-We believe that very soon in the moment of Singularity all knowledge on Earth will be knowlified - and we are going Knoware. 
+The name Knowlifier may look or sound weird, right? Like *no-lifer* or *nullifier*. But here's the twist: we believe the disruptive moment of Singularity is coming, and very soon all knowledge on Earth will be "knowlified" (not *nullified*). We are anticipating the age of Knoware (not *nowhere*).
 
-With Cogntive components you just copy-paste the packages of knowledge into your projects, and - voilá, I know kung fu.
+**Knoware** is the layer on top of Software: 
+
+- Knoware: The structured intelligence (Markdown-based knowledge / cognitive components)
+- Software: The functional logic (Code / Applications / LLMs).
+- Hardware: The physical infrastructure (Data centers / Servers / Processors).
+
+Knoware is a new type of "cognitive code" structured in markdown files: readable, editable, and shareable by humans and AI. This "code" describes knowledge structures authored by multiple people and covering various business domains. 
+In the very near future, every company will need a "knoware engineer" to organize its knowledge — product lines, business processes, and routines. 
+Every book author will not only publish a paper book but also provide a git library with knowlified content that makes this knowledge AGI-friendly and ready.
+
+**Cognitive Components** are the exact format for such structured knowledge packages. By treating knowledge like a git library—modular, version-controlled, and structured in Markdown — you are essentially creating a plug-and-play intellect. Instead of training an AI on a pile of data, I can "knowlify" anything into a Cognitive Component, copy-paste it into my project, and voilà — like Neo, I know kung fu.
 
 ## Cognitive Components
 
-Cognitive Components packages consist of md files and describe a specific subject domain.
-Alongside md files that describe knowledge, configuration json, yaml, or toml files may be used as needed to provide integration settings with software components.
+Cognitive Component packages consist of md files and describe a specific subject domain.
+Alongside md files that describe knowledge, configuration JSON, YAML, or TOML files may be used as needed to provide integration settings with software components.
 
 A single Cognitive Component knowledge package contains:
 
@@ -48,14 +58,14 @@ This file contains configurations and permissions for the components in this pro
 
 - **Run-time components** — cognitive components used in code execution mode by the agent. These components perform the necessary business processes.
 
-The design-time vs. run-time separation — it is important to explicitly separate components, restricting run-time access to design-time components so that during execution users cannot trigger editing of component files unless explicitly intended.
+The design-time vs. run-time separation is important: explicitly separate these components, restricting run-time access to design-time components so that during execution users cannot trigger editing of component files unless explicitly intended.
 
 ### Permissions 
 
 Permissions define access to components at run-time and design-time:
-- READ: the agents can read and understand the knowledge specified in the components, including terms, principles and data. If the link to the folder or file is not specified explicitly as READ for this component (in design-time or run-time), then the system should ignore these files as if this knowledge did not exist (in design-time or run-time respectively).
-- WRITE: the agents can write (change all or specified files inside the component). If the link to the folder or file is not specified explicitly as WRITE for this component (in design-time or run-time), then the system **IS NOT ALLOWED** to modify these files as if these files did not exist (in design-time or run-time respectively).
-- RUN: the agents can run the rulebooks (md files describing the processes and workflows). If the link to the folder or file is not specified explicitly as RUN for this component (in design-time or run-time), then the system **IS NOT ALLOWED** to use the instructions described in these rulebooks as if these files did not exist (in design-time or run-time respectively).
+- **READ**: the agents can read and understand the knowledge specified in the components, including terms, principles and data. If the link to the folder or file is not specified explicitly as READ for this component (in design-time or run-time), then the system should ignore these files as if this knowledge did not exist (in design-time or run-time respectively).
+- **WRITE**: the agents can write (change all or specified files inside the component). If the link to the folder or file is not specified explicitly as WRITE for this component (in design-time or run-time), then the system **IS NOT ALLOWED** to modify these files as if these files did not exist (in design-time or run-time respectively).
+- **RUN**: the agents can run the rulebooks (md files describing the processes and workflows). If the link to the folder or file is not specified explicitly as RUN for this component (in design-time or run-time), then the system **IS NOT ALLOWED** to use the instructions described in these rulebooks as if these files did not exist (in design-time or run-time respectively).
 
 Example of permissions:
 

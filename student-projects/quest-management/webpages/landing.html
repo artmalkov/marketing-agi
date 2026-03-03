@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest Management Academy — Курс для лидеров амбициозных проектов</title>
+  <meta name="description" content="Научитесь вести амбициозные проекты: работа с неопределённостью, взаимодействие со спонсором, борьба с блокерами. Для PM, product managers и инвесторов.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0e12;
+      --bg-card: #161a21;
+      --text: #e6e9ef;
+      --text-muted: #7d8590;
+      --accent: #e8a317;
+      --accent-dim: #c4890f;
+      --border: #2d333b;
+      --radius: 10px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232, 163, 23, 0.08), transparent),
+        linear-gradient(rgba(232, 163, 23, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 163, 23, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .cta-header {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+
+    .cta-header:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .hero {
+      padding: 72px 0 88px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: rgba(232, 163, 23, 0.12);
+      padding: 6px 12px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .pain-section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .pain-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .pain-card:hover {
+      border-color: rgba(232, 163, 23, 0.35);
+    }
+
+    .pain-card .icon {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .pain-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .pain-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .solutions {
+      padding: 72px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(232, 163, 23, 0.03) 50%, transparent 100%);
+    }
+
+    .solutions .section-title {
+      margin-bottom: 40px;
+    }
+
+    .solution-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .solution-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+    }
+
+    .solution-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .solution-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .solution-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .insight-box {
+      padding: 48px 0;
+    }
+
+    .insight-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+    }
+
+    .insight-inner h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .insight-inner p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .cta-section {
+      padding: 88px 0 100px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 48px 0 64px;
+      }
+      .solution-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .insight-inner {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="logo">Quest Management Academy</span>
+      <a href="#cta" class="cta-header">Узнать больше</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">PM · Product · Амбициозные проекты</span>
+        <h1>Проект амбициозный и непонятный.<br>Что делать, когда результат должен быть <span>очень хорошим</span>?</h1>
+        <p class="hero-sub">Курс для project managers, product managers и лидеров, которые ведут сложные проекты. Стратегия, неопределённость, блокеры, взаимодействие со спонсором.</p>
+        <a href="#cta" class="hero-cta">Записаться на курс →</a>
+      </div>
+    </section>
+
+    <section class="pain-section">
+      <div class="container">
+        <h2 class="section-title">Вы это чувствуете?</h2>
+        <div class="pain-grid">
+          <div class="pain-card">
+            <div class="icon">🧭</div>
+            <h3>Неясно, что делать в амбициозном проекте</h3>
+            <p>Проект непонятный, результат должен быть отличным. С чего начать?</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon">❓</div>
+            <h3>Неопределённости мешают двигаться</h3>
+            <p>Как работать с неопределённостями и снижать их, а не застревать?</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon">⏱</div>
+            <h3>Мало времени, результат не гарантирован</h3>
+            <p>Как сделать то, что понравится спонсору, когда дедлайны горят?</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon">🤝</div>
+            <h3>Команда и спонсор не понимают друг друга</h3>
+            <p>Как организовать взаимодействие между PM, капитаном команды и инвестором?</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon">🛑</div>
+            <h3>Блокеры не дают двигаться вперёд</h3>
+            <p>Что делать, когда что-то постоянно блокирует прогресс?</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon">🔬</div>
+            <h3>Тестирование выявило непредвиденное</h3>
+            <p>Как быть готовым к тому, что тестирование затянется из-за новых открытий?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutions">
+      <div class="container">
+        <h2 class="section-title">Что даёт курс</h2>
+        <div class="solution-list">
+          <div class="solution-item">
+            <span class="solution-num">01</span>
+            <div>
+              <h3>Первичная стратегия исполнения</h3>
+              <p>Как выстроить стратегию проекта, когда неясно, что делать, но результат должен быть очень хорошим.</p>
+            </div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-num">02</span>
+            <div>
+              <h3>Работа с неопределённостью</h3>
+              <p>Как снижать неопределённости и двигаться вперёд, не застревая в сомнениях.</p>
+            </div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-num">03</span>
+            <div>
+              <h3>Борьба с блокерами</h3>
+              <p>Инструменты для преодоления блокеров, которые не дают проекту двигаться.</p>
+            </div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-num">04</span>
+            <div>
+              <h3>Взаимодействие со спонсором</h3>
+              <p>Как организовать диалог между PM, капитаном команды и спонсором/инвестором. Разделение рисков.</p>
+            </div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-num">05</span>
+            <div>
+              <h3>Готовность к частичному решению</h3>
+              <p>Как выстроить взаимопонимание: спонсор и команда готовы к тому, что проблема решится не полностью.</p>
+            </div>
+          </div>
+          <div class="solution-item">
+            <span class="solution-num">06</span>
+            <div>
+              <h3>Тестирование и непредвиденное</h3>
+              <p>Как быть готовым к задержкам тестирования, когда обнаруживается то, чего не учли в начале.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="insight-box">
+      <div class="container">
+        <div class="insight-inner">
+          <h3>Ключевой инсайт</h3>
+          <p>Спонсор и команда должны разделять риски вместе. Без взаимопонимания инвестор тратит деньги, капитан команды старается, но делает не то, все недовольны. В курсе учим, что делать лидерам и инвесторам при столкновении с этими проблемами.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+      <div class="container">
+        <h2>Записаться на курс</h2>
+        <p>Содержание построено на потребностях PM и product managers, ведущих амбициозные проекты.</p>
+        <a href="#" class="hero-cta">Оставить заявку →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Quest Management Academy</p>
+    </div>
+  </footer>
+</body>
+</html>
