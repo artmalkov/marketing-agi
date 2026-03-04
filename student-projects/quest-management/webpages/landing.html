@@ -3,433 +3,442 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quest Management Academy — Курс для лидеров амбициозных проектов</title>
-  <meta name="description" content="Научитесь вести амбициозные проекты: работа с неопределённостью, взаимодействие со спонсором, борьба с блокерами. Для PM, product managers и инвесторов.">
+  <title>Quest Management Academy — курс для амбициозных проектов</title>
+  <meta name="description" content="Курс для PM и product managers: как действовать в непонятном проекте, снижать неопределенность, выстраивать работу со спонсором и проходить блокеры.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0c0e12;
-      --bg-card: #161a21;
-      --text: #e6e9ef;
-      --text-muted: #7d8590;
-      --accent: #e8a317;
-      --accent-dim: #c4890f;
-      --border: #2d333b;
-      --radius: 10px;
-      --radius-lg: 16px;
+      --bg: #f7f7f2;
+      --text: #1f2428;
+      --muted: #5f6b75;
+      --card: #ffffff;
+      --accent: #0f766e;
+      --accent-2: #f59e0b;
+      --border: #d8dee3;
+      --radius: 16px;
+      --radius-xl: 24px;
+      --shadow: 0 16px 32px rgba(20, 31, 44, 0.12);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
-      background: var(--bg);
+      font-family: "Manrope", sans-serif;
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(15, 118, 110, 0.16), transparent 32%),
+        radial-gradient(circle at 88% 24%, rgba(245, 158, 11, 0.16), transparent 34%),
+        linear-gradient(180deg, #fafaf6 0%, #f1f2eb 100%);
+      min-height: 100vh;
     }
 
-    body::before {
-      content: '';
+    .grain {
       position: fixed;
       inset: 0;
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232, 163, 23, 0.08), transparent),
-        linear-gradient(rgba(232, 163, 23, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 163, 23, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 48px 48px, 48px 48px;
       pointer-events: none;
+      background-image:
+        linear-gradient(rgba(31, 36, 40, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 36, 40, 0.02) 1px, transparent 1px);
+      background-size: 22px 22px;
       z-index: 0;
     }
 
     .container {
-      max-width: 1000px;
+      width: min(1100px, 92%);
       margin: 0 auto;
-      padding: 0 24px;
       position: relative;
       z-index: 1;
     }
 
     header {
-      padding: 24px 0;
+      padding: 28px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.15rem;
+    .brand {
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--accent);
-      font-family: 'IBM Plex Mono', monospace;
-    }
-
-    .cta-header {
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 10px 20px;
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      transition: all 0.2s;
     }
 
-    .cta-header:hover {
-      background: var(--accent);
-      color: var(--bg);
+    .tag {
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .hero {
-      padding: 72px 0 88px;
-      text-align: center;
+      padding: 34px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 28px;
+      align-items: start;
     }
 
-    .hero-badge {
+    .hero-copy {
+      animation: slide-up 0.8s ease both;
+    }
+
+    .eyebrow {
       display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      background: rgba(232, 163, 23, 0.12);
+      color: #0b5e58;
+      background: rgba(15, 118, 110, 0.12);
+      border: 1px solid rgba(15, 118, 110, 0.28);
+      border-radius: 999px;
       padding: 6px 12px;
-      border-radius: 100px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.08;
       letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 17ch;
     }
 
-    .hero h1 span {
+    h1 .accent {
       color: var(--accent);
     }
 
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto 36px;
+    .hero p {
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      max-width: 60ch;
+      color: #30404e;
+      margin-bottom: 26px;
     }
 
-    .hero-cta {
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 16px 32px;
-      border-radius: var(--radius);
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s;
-      border: none;
-      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .hero-cta:hover {
-      background: var(--accent-dim);
+    .button.primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.3);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .button:hover {
       transform: translateY(-2px);
     }
 
-    .pain-section {
-      padding: 56px 0;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 28px;
-      text-align: center;
-    }
-
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .pain-card {
-      background: var(--bg-card);
+    .hero-card {
+      background: linear-gradient(150deg, #ffffff 0%, #f8f6ef 100%);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 24px;
-      transition: border-color 0.2s;
+      box-shadow: var(--shadow);
+      animation: slide-up 0.9s ease 0.1s both;
     }
 
-    .pain-card:hover {
-      border-color: rgba(232, 163, 23, 0.35);
-    }
-
-    .pain-card .icon {
-      font-size: 1.35rem;
+    .hero-card h2 {
+      font-size: 1.18rem;
       margin-bottom: 14px;
     }
 
-    .pain-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
+    .hero-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
     }
 
-    .pain-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
+    .hero-list li {
+      border: 1px solid #e2e8ed;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fff;
+      font-size: 0.95rem;
     }
 
-    .solutions {
-      padding: 72px 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(232, 163, 23, 0.03) 50%, transparent 100%);
+    section {
+      padding: 58px 0;
     }
 
-    .solutions .section-title {
-      margin-bottom: 40px;
+    .section-head {
+      margin-bottom: 24px;
+      max-width: 74ch;
     }
 
-    .solution-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .section-head h2 {
+      font-size: clamp(1.45rem, 3.4vw, 2.15rem);
+      margin-bottom: 8px;
     }
 
-    .solution-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      background: var(--bg-card);
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
+      border-radius: var(--radius);
+      padding: 18px;
     }
 
-    .solution-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--accent);
-      flex-shrink: 0;
+    .card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
     }
 
-    .solution-item h3 {
-      font-size: 1.05rem;
+    .card p {
+      color: #4d5964;
+      font-size: 0.95rem;
+    }
+
+    .program {
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.06) 0%, rgba(15, 118, 110, 0) 100%);
+      border-top: 1px solid rgba(15, 118, 110, 0.2);
+      border-bottom: 1px solid rgba(15, 118, 110, 0.2);
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      background: #fff;
+      border: 1px solid #d7e3e2;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: #d8f2ef;
+      color: #0b5e58;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
       font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .solution-item p {
       font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
-    .insight-box {
-      padding: 48px 0;
+    .final-cta {
+      margin: 16px 0 70px;
+      background: #15232b;
+      color: #f4f7f8;
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 5vw, 42px);
+      display: grid;
+      gap: 18px;
+      box-shadow: 0 18px 38px rgba(21, 35, 43, 0.36);
     }
 
-    .insight-inner {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-lg);
-      padding: 32px 40px;
+    .final-cta h2 {
+      font-size: clamp(1.45rem, 3.2vw, 2.25rem);
+      max-width: 22ch;
+      line-height: 1.2;
     }
 
-    .insight-inner h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--accent);
+    .final-cta p {
+      max-width: 66ch;
+      color: #c6d3d9;
     }
 
-    .insight-inner p {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .cta-section {
-      padding: 88px 0 100px;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .cta-section p {
-      color: var(--text-muted);
-      margin-bottom: 28px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+    .final-cta .button.primary {
+      background: var(--accent-2);
+      color: #2d1f07;
+      box-shadow: 0 10px 22px rgba(245, 158, 11, 0.35);
+      width: fit-content;
     }
 
     footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
+      padding: 0 0 24px;
+      color: #5d6871;
+      font-size: 0.88rem;
     }
 
-    footer p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 880px) {
       .hero {
-        padding: 48px 0 64px;
+        grid-template-columns: 1fr;
       }
-      .solution-item {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .insight-inner {
-        padding: 24px 20px;
+
+      .hero-card {
+        max-width: 560px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <span class="logo">Quest Management Academy</span>
-      <a href="#cta" class="cta-header">Узнать больше</a>
-    </div>
-  </header>
+  <div class="grain" aria-hidden="true"></div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <span class="hero-badge">PM · Product · Амбициозные проекты</span>
-        <h1>Проект амбициозный и непонятный.<br>Что делать, когда результат должен быть <span>очень хорошим</span>?</h1>
-        <p class="hero-sub">Курс для project managers, product managers и лидеров, которые ведут сложные проекты. Стратегия, неопределённость, блокеры, взаимодействие со спонсором.</p>
-        <a href="#cta" class="hero-cta">Записаться на курс →</a>
-      </div>
-    </section>
+  <div class="container">
+    <header>
+      <div class="brand">Quest Management Academy</div>
+      <div class="tag">Курс для PM и product managers в сложных проектах</div>
+    </header>
 
-    <section class="pain-section">
-      <div class="container">
-        <h2 class="section-title">Вы это чувствуете?</h2>
-        <div class="pain-grid">
-          <div class="pain-card">
-            <div class="icon">🧭</div>
-            <h3>Неясно, что делать в амбициозном проекте</h3>
-            <p>Проект непонятный, результат должен быть отличным. С чего начать?</p>
-          </div>
-          <div class="pain-card">
-            <div class="icon">❓</div>
-            <h3>Неопределённости мешают двигаться</h3>
-            <p>Как работать с неопределённостями и снижать их, а не застревать?</p>
-          </div>
-          <div class="pain-card">
-            <div class="icon">⏱</div>
-            <h3>Мало времени, результат не гарантирован</h3>
-            <p>Как сделать то, что понравится спонсору, когда дедлайны горят?</p>
-          </div>
-          <div class="pain-card">
-            <div class="icon">🤝</div>
-            <h3>Команда и спонсор не понимают друг друга</h3>
-            <p>Как организовать взаимодействие между PM, капитаном команды и инвестором?</p>
-          </div>
-          <div class="pain-card">
-            <div class="icon">🛑</div>
-            <h3>Блокеры не дают двигаться вперёд</h3>
-            <p>Что делать, когда что-то постоянно блокирует прогресс?</p>
-          </div>
-          <div class="pain-card">
-            <div class="icon">🔬</div>
-            <h3>Тестирование выявило непредвиденное</h3>
-            <p>Как быть готовым к тому, что тестирование затянется из-за новых открытий?</p>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <span class="eyebrow">Практика для неопределенных проектов</span>
+          <h1>Когда проект <span class="accent">амбициозный и непонятный</span>, нужен не героизм, а система действий.</h1>
+          <p>
+            Мы разбираем, как двигаться в условиях неполной информации: снижать неопределенность,
+            согласовывать ожидания со спонсором, проходить блокеры и доводить работу до результата,
+            даже если итоговый ответ будет частичным.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Записаться на программу</a>
+            <a class="button secondary" href="#program">Посмотреть структуру курса</a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="solutions">
-      <div class="container">
-        <h2 class="section-title">Что даёт курс</h2>
-        <div class="solution-list">
-          <div class="solution-item">
-            <span class="solution-num">01</span>
+        <aside class="hero-card" aria-label="Что получите на курсе">
+          <h2>Что вы заберете в работу</h2>
+          <ul class="hero-list">
+            <li>Алгоритм первых шагов в неясном проекте</li>
+            <li>Подход к снижению неопределенности и управлению рисками</li>
+            <li>Сценарии взаимодействия PM, команды и спонсора</li>
+            <li>Принципы работы с блокерами и затяжным тестированием</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Какие задачи мы закрываем</h2>
+          <p>Основа блока — подтвержденные потребности из клиентских интервью в проекте Quest Management Academy.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Ясность на старте</h3>
+            <p>Как определить рабочую стратегию, когда требования еще расплывчаты, а качество ожидается высоким.</p>
+          </article>
+          <article class="card">
+            <h3>Работа с неопределенностью</h3>
+            <p>Как выделять управляемые риски, снижать туманность и принимать решения без полной информации.</p>
+          </article>
+          <article class="card">
+            <h3>Ожидания спонсора</h3>
+            <p>Как строить решения, которые понятны инвестору, при ограниченном времени и негарантированном результате.</p>
+          </article>
+          <article class="card">
+            <h3>Совместный риск</h3>
+            <p>Как договориться о частичном результате заранее, чтобы избежать конфликтов между командой и спонсором.</p>
+          </article>
+          <article class="card">
+            <h3>Блокеры в процессе</h3>
+            <p>Как находить узкие места, быстро разбирать причины и возвращать проект в рабочий темп.</p>
+          </article>
+          <article class="card">
+            <h3>Непредвиденные открытия в тестах</h3>
+            <p>Как планировать тестирование, когда важные факторы обнаруживаются только в ходе выполнения проекта.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="program" id="program">
+        <div class="section-head">
+          <h2>Структура курса</h2>
+          <p>Программа идет по этапам проекта: от первичной стратегии до тестирования и корректировки решений.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01</div>
             <div>
-              <h3>Первичная стратегия исполнения</h3>
-              <p>Как выстроить стратегию проекта, когда неясно, что делать, но результат должен быть очень хорошим.</p>
+              <h3>Первичная стратегия</h3>
+              <p>Формируем карту решений: что делаем сейчас, что проверяем и что оставляем в гипотезах.</p>
             </div>
-          </div>
-          <div class="solution-item">
-            <span class="solution-num">02</span>
+          </article>
+          <article class="step">
+            <div class="step-num">02</div>
             <div>
-              <h3>Работа с неопределённостью</h3>
-              <p>Как снижать неопределённости и двигаться вперёд, не застревая в сомнениях.</p>
+              <h3>Снижение неопределенности</h3>
+              <p>Выбираем инструменты, которые уменьшают риск ошибок на ранних этапах.</p>
             </div>
-          </div>
-          <div class="solution-item">
-            <span class="solution-num">03</span>
-            <div>
-              <h3>Борьба с блокерами</h3>
-              <p>Инструменты для преодоления блокеров, которые не дают проекту двигаться.</p>
-            </div>
-          </div>
-          <div class="solution-item">
-            <span class="solution-num">04</span>
+          </article>
+          <article class="step">
+            <div class="step-num">03</div>
             <div>
               <h3>Взаимодействие со спонсором</h3>
-              <p>Как организовать диалог между PM, капитаном команды и спонсором/инвестором. Разделение рисков.</p>
+              <p>Отрабатываем модель договоренностей между PM, командой и инвестором в условиях ограничений.</p>
             </div>
-          </div>
-          <div class="solution-item">
-            <span class="solution-num">05</span>
+          </article>
+          <article class="step">
+            <div class="step-num">04</div>
             <div>
-              <h3>Готовность к частичному решению</h3>
-              <p>Как выстроить взаимопонимание: спонсор и команда готовы к тому, что проблема решится не полностью.</p>
+              <h3>Блокеры и тестирование</h3>
+              <p>Проводим сценарии для задержек и неожиданных открытий, чтобы проект не останавливался.</p>
             </div>
-          </div>
-          <div class="solution-item">
-            <span class="solution-num">06</span>
-            <div>
-              <h3>Тестирование и непредвиденное</h3>
-              <p>Как быть готовым к задержкам тестирования, когда обнаруживается то, чего не учли в начале.</p>
-            </div>
-          </div>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="insight-box">
-      <div class="container">
-        <div class="insight-inner">
-          <h3>Ключевой инсайт</h3>
-          <p>Спонсор и команда должны разделять риски вместе. Без взаимопонимания инвестор тратит деньги, капитан команды старается, но делает не то, все недовольны. В курсе учим, что делать лидерам и инвесторам при столкновении с этими проблемами.</p>
-        </div>
-      </div>
-    </section>
+      <section class="final-cta" id="contact">
+        <h2>Если ваш проект важный, сложный и с высокой ценой ошибки, эта программа для вас.</h2>
+        <p>
+          Quest Management Academy помогает PM, product managers и лидерам проектов переходить
+          от хаотичных действий к прозрачной системе решений, понятной и команде, и спонсору.
+        </p>
+        <a class="button primary" href="#top">Оставить заявку на участие</a>
+      </section>
+    </main>
 
-    <section class="cta-section" id="cta">
-      <div class="container">
-        <h2>Записаться на курс</h2>
-        <p>Содержание построено на потребностях PM и product managers, ведущих амбициозные проекты.</p>
-        <a href="#" class="hero-cta">Оставить заявку →</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>Quest Management Academy</p>
-    </div>
-  </footer>
+    <footer>
+      Quest Management Academy • Обучение управлению амбициозными проектами
+    </footer>
+  </div>
 </body>
 </html>
