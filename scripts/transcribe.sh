@@ -28,13 +28,15 @@ SUPPORTED_EXT="mp3 wav m4a flac ogg opus mp4 mov avi mkv"
 
 die() { echo "Error: $*" >&2; exit 1; }
 
+NEXARA_API_KEY="${NEXARA_API_KEY:-nx-Iux3AjSO7EBZR9pA73wNv3qT}"
+
 check_api_key() {
   [[ -n "${NEXARA_API_KEY:-}" ]] || die "NEXARA_API_KEY is not set.\nSet it with: export NEXARA_API_KEY=your_key_here"
 }
 
 is_audio() {
   local ext="${1##*.}"
-  ext="${ext,,}"  # lowercase
+  ext="$(echo "$ext" | tr '[:upper:]' '[:lower:]')"
   [[ " $SUPPORTED_EXT " == *" $ext "* ]]
 }
 
