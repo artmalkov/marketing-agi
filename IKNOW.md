@@ -89,18 +89,21 @@ The permissions for the current project are listed below. Edit this file at desi
 READ:
   - knowledge/_lib/*
   - knowledge/_sandbox/*
+  - knowledge/competitor-analysis/*
   - knowledge/customer-calls/*
   - knowledge/genotype/*
   - knowledge/landing-pages/*
 
 WRITE:
   - knowledge/_sandbox/*
+  - knowledge/competitor-analysis/*
   - knowledge/customer-calls/*
   - knowledge/genotype/*
   - knowledge/landing-pages/*
 
 RUN:
   - knowledge/_sandbox/*
+  - knowledge/competitor-analysis/*
   - knowledge/customer-calls/*
   - knowledge/genotype/*
   - knowledge/landing-pages/*
@@ -110,6 +113,7 @@ RUN:
 
 ````yaml
 READ:
+  - knowledge/competitor-analysis/*
   - knowledge/customer-calls/*
   - knowledge/landing-pages/*
 
