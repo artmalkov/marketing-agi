@@ -90,16 +90,19 @@ READ:
   - knowledge/_lib/*
   - knowledge/_sandbox/*
   - knowledge/customer-calls/*
+  - knowledge/genotype/*
   - knowledge/landing-pages/*
 
 WRITE:
   - knowledge/_sandbox/*
   - knowledge/customer-calls/*
+  - knowledge/genotype/*
   - knowledge/landing-pages/*
 
 RUN:
   - knowledge/_sandbox/*
   - knowledge/customer-calls/*
+  - knowledge/genotype/*
   - knowledge/landing-pages/*
 ````
 

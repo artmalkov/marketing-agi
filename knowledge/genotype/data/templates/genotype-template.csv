@@ -1,0 +1,16 @@
+;;;;;;[date];[date];[date];[date]
+;;;;;;[client1 name/poll];[client2 name/poll];[client3 name/poll];[client4 name/poll]
+;;;;;;[paid/trial/interview];[paid/trial/interview];[paid/trial/interview];[paid/trial/interview]
+;;Votes;Budget;Need;;[client1 budget];[client2 budget];[client3 budget];[client4 budget]
+[NEEDS SECTION NAME 1];;;;;;;;;
+;[I want need1];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need1];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need2];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need2];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need3];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need3];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need4];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need4];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+[NEEDS SECTION NAME 2];;;;;;;;;
+;[I want need5];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need5];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need6];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need6];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need7];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need7];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need8];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need8];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need9];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need9];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
+;[I want need10];[number of clients who are interested];[aggregated budget of clients who are interested];[genotype-needs-taxonomy-level of need10];;[0 or 1];[0 or 1];[0 or 1];[0 or 1]
