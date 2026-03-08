@@ -17,9 +17,7 @@ marketing-agi/
 │   ├── competitor-analysis/  # Поиск и анализ конкурентов, competitor genotype
 │   ├── customer-calls/       # Обработка звонков с клиентами
 │   ├── genotype/             # Genotype-таблица потребностей, roadmap
-│   ├── landing-pages/        # Лендинги
-│   ├── _lib/                 # Зависимости компонентов
-│   └── _sandbox/             # Экспериментальные компоненты (design-time)
+│   └── landing-pages/        # Лендинги
 ├── student-projects/         # Рабочие проекты студентов
 └── IKNOW.md                  # Конфигурация компонентов и прав доступа
 ```
