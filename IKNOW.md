@@ -71,7 +71,7 @@ Example of permissions:
 
 ````yaml
 READ:
-  - knowledge/_lib/*
+  - .knowlib/*
 
 WRITE:
   - knowledge/component-name1/*
@@ -87,8 +87,6 @@ The permissions for the current project are listed below. Edit this file at desi
 
 ````yaml
 READ:
-  - knowledge/_lib/*
-  - knowledge/_sandbox/*
   - knowledge/competitor-analysis/*
   - knowledge/customer-calls/*
   - knowledge/genotype/*
